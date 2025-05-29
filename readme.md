@@ -128,6 +128,6 @@ Adicionar parâmetros de busca para consultar reservas por data ou sala.
 
 ## 🧑‍💻 Autores
 
-Vinicius Cassapian
-Beatriz Alves
+Vinicius Cassapian, 
+Beatriz Alves, 
 Janaina Figueiredo
