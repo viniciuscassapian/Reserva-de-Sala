@@ -29,7 +29,7 @@ A API de Reserva de Salas é um **microsserviço** que faz parte de um sistema m
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/reserva-salas.git](https://github.com/viniciuscassapian/Reserva-de-Sala.git
+git clone https://github.com/viniciuscassapian/Reserva-de-Sala.git
 cd reserva-salas
 ```
 
