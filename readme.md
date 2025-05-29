@@ -121,8 +121,9 @@ Implementar login de usuários e permissões para restringir quem pode criar, vi
 🕐 Validação de Conflitos de Horário
 Impedir que duas reservas sejam feitas para a mesma sala no mesmo horário.
 
-🗓️ Filtro por Data e Sala
+🗓️ Filtro por Sala ou Data
 Adicionar parâmetros de busca para consultar reservas por data ou sala.
+
 ---
 
 ## 🧑‍💻 Autores
