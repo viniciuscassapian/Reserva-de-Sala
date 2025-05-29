@@ -4,7 +4,7 @@ Este repositório contém a **API de Reserva de Salas**, desenvolvida com **Flas
 
 ## 🧩 Arquitetura
 
-A API de Reserva de Salas é um **microsserviço** que faz parte de um sistema maior de [Gerenciamento de Sala](https://github.com/viniciuscassapian/Projeto-Flask.git)
+A API de Reserva de Salas é um **microsserviço** que faz parte de um sistema maior de [Gerenciamento de Escola](https://github.com/viniciuscassapian/Projeto-Flask.git)
 , sendo responsável exclusivamente pelo gerenciamento das reservas de salas por turma.
 
 ⚠️ **Esta API depende de outra API de Gerenciamento Escolar (Projeto-Flask)**, que deve estar em execução e exposta localmente. A comunicação entre os serviços ocorre via **requisições HTTP REST**, para validar:
@@ -29,7 +29,7 @@ A API de Reserva de Salas é um **microsserviço** que faz parte de um sistema m
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/reserva-salas.git
+git clone https://github.com/seu-usuario/reserva-salas.git](https://github.com/viniciuscassapian/Reserva-de-Sala.git
 cd reserva-salas
 ```
 
@@ -54,7 +54,7 @@ python app.py
 ```
 
 A aplicação estará disponível em:
-📍 `http://localhost:5001`
+📍 `http://localhost:5001`(necessário colocar "/reservas" após "http://localhost:5001" na barra de navegação)
 
 📝 **Observação:** O banco de dados é criado automaticamente na primeira execução.
 
@@ -74,9 +74,7 @@ A aplicação estará disponível em:
 {
   "turma_id": 1,
   "sala": "101",
-  "data": "2025-05-06",
-  "hora_inicio": "14:00",
-  "hora_fim": "16:00"
+  "data": "2025-05-06T14:00:00"
 }
 ```
 
@@ -97,26 +95,38 @@ E que os endpoints de `GET /turmas/<id>` (e opcionalmente `GET /alunos/<id>`) es
 ## 📦 Estrutura do Projeto
 
 ```
-reserva-salas/
-│
-├── app.py
-├── reserva_model.py
-├── database.py
-├── routes.py
-├── requirements.txt
-└── README.md
+Reserva-de-salas-flask/
+├── controller/
+│   └── reserva_controller.py     
+├── instance/
+│   └── reservas.db              
+├── models/
+│   └── reserva_model.py          
+├── app.py                        
+├── config.py                     
+├── database.py                   
+├── dockerfile                    
+├── reserva_route.py              
+└── readme.md                     
+
 ```
 
 ---
 
 ## 🛠️ Futuras Melhorias
 
-- Validação de conflito de horário na sala
-- Integração via fila (RabbitMQ) com outros microsserviços
-- Autenticação de usuários
+🔐 Autenticação e Autorização
+Implementar login de usuários e permissões para restringir quem pode criar, visualizar ou excluir reservas.
 
+🕐 Validação de Conflitos de Horário
+Impedir que duas reservas sejam feitas para a mesma sala no mesmo horário.
+
+🗓️ Filtro por Data e Sala
+Adicionar parâmetros de busca para consultar reservas por data ou sala.
 ---
 
-## 🧑‍💻 Autor
+## 🧑‍💻 Autores
 
-Caio Ireno – Projeto educativo de arquitetura com Flask e microsserviços.
+Vinicius Cassapian
+Beatriz Alves
+Janaina Figueiredo
