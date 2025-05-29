@@ -1,10 +1,10 @@
 from flask import Flask
 from database import db
 from reserva_route import routes
+from config import Config
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///reservas.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config.from_object(Config)
 
 db.init_app(app)
 app.register_blueprint(routes)

@@ -4,10 +4,10 @@ Este repositório contém a **API de Reserva de Salas**, desenvolvida com **Flas
 
 ## 🧩 Arquitetura
 
-A API de Reserva de Salas é um **microsserviço** que faz parte de um sistema maior de [School System](https://github.com/caio-ireno/School-System-Api)
+A API de Reserva de Salas é um **microsserviço** que faz parte de um sistema maior de [Gerenciamento de Sala](https://github.com/viniciuscassapian/Projeto-Flask.git)
 , sendo responsável exclusivamente pelo gerenciamento das reservas de salas por turma.
 
-⚠️ **Esta API depende de outra API de Gerenciamento Escolar (School System)**, que deve estar em execução e exposta localmente. A comunicação entre os serviços ocorre via **requisições HTTP REST**, para validar:
+⚠️ **Esta API depende de outra API de Gerenciamento Escolar (Projeto-Flask)**, que deve estar em execução e exposta localmente. A comunicação entre os serviços ocorre via **requisições HTTP REST**, para validar:
 
 - Se a **Turma** existe (`GET /turmas/<id>`)
 - (Opcional) Se o **Aluno** existe (`GET /alunos/<id>`) – pode ser desativado se não usado.

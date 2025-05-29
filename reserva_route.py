@@ -1,46 +1,29 @@
-from flask import Blueprint, request, jsonify
-from reserva_model import Reserva
-from database import db
-import requests
+from flask import Blueprint, request
+from controller.reserva_controller import (
+    criar_reserva,
+    listar_reservas,
+    deletar_reserva,
+    buscar_reserva_por_id
+)
 
 routes = Blueprint("routes", __name__)
 
-
-def validar_turma(turma_id):
-    resp = requests.get(f"http://localhost:5000/api/turmas/{turma_id}")
-    return resp.status_code == 200
-
+# Rota para criar uma nova reserva
 @routes.route("/reservas", methods=["POST"])
-def criar_reserva():
-    dados = request.json
-    turma_id = dados.get("turma_id")
+def post_reserva():
+    return criar_reserva(request.json)
 
-    if not validar_turma(turma_id):
-        return jsonify({"erro": "Turma não encontrada"}), 400
-
-    reserva = Reserva(
-        turma_id=turma_id,
-        sala=dados.get("sala"),
-        data=dados.get("data"),
-        hora_inicio=dados.get("hora_inicio"),
-        hora_fim=dados.get("hora_fim")
-    )
-
-    db.session.add(reserva)
-    db.session.commit()
-
-    return jsonify({"mensagem": "Reserva criada com sucesso"}), 201
-
+# Rota para listar todas as reservas
 @routes.route("/reservas", methods=["GET"])
-def listar_reservas():
-    reservas = Reserva.query.all()
-    return jsonify([
-        {
-            "id": r.id,
-            "turma_id": r.turma_id,
-            "sala": r.sala,
-            "data": r.data,
-            "hora_inicio": r.hora_inicio,
-            "hora_fim": r.hora_fim
-        } for r in reservas
-    ])
+def get_reservas():
+    return listar_reservas()
+
+# Rota para buscar uma reserva específica por ID
+@routes.route("/reservas/<int:reserva_id>", methods=["GET"])
+def get_reserva_por_id(reserva_id):
+    return buscar_reserva_por_id(reserva_id)
+
+# Rota para deletar uma reserva por ID
+@routes.route("/reservas/<int:reserva_id>", methods=["DELETE"])
+def delete_reserva(reserva_id):
+    return deletar_reserva(reserva_id)
