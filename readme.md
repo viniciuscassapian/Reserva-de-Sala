@@ -30,7 +30,7 @@ A API de Reserva de Salas é um **microsserviço** que faz parte de um sistema m
 
 ```bash
 git clone https://github.com/viniciuscassapian/Reserva-de-Sala.git
-cd reserva-salas
+cd Reserva-de-Sala
 ```
 
 ### 2. Crie um ambiente virtual (opcional, mas recomendado)
